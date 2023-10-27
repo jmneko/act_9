@@ -1,4 +1,12 @@
 const getAllAutores = (req, res) => {
+  db.query("select *from alumnos")
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   res.send("probando getAllAutores");
 };
 
