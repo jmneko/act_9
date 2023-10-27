@@ -1,5 +1,5 @@
 const getAllAutores = (req, res) => {
-  db.query("select *from alumnos")
+  db.query("select *from autores")
     .then((result) => {
       console.log(result);
     })
