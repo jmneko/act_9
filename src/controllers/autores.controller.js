@@ -1,13 +1,12 @@
-const getAllAutores = (req, res) => {
-  db.query("select *from autores")
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+const AutorModel = require("../models/autor.model");
 
-  res.send("probando getAllAutores");
+const getAllAutores = async (req, res) => {
+  try {
+    const [result] = await AutorModel.selectAllAutores();
+    res.json(result);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
 };
 
 const createAutor = (req, res) => {
