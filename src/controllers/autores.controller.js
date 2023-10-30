@@ -9,6 +9,15 @@ const getAllAutores = async (req, res) => {
   }
 };
 
+const getPostsAutores = async (req, res) => {
+  try {
+    const [result] = await AutorModel.selectPostsIdAutor();
+    res.json(result);
+  } catch (error) {
+    res.json({ fatal: error.message });
+  }
+};
+
 const createAutor = async (req, res) => {
   try {
     const [result] = await AutorModel.createOneAutor(req.body);
@@ -19,4 +28,4 @@ const createAutor = async (req, res) => {
   }
 };
 
-module.exports = { getAllAutores, createAutor };
+module.exports = { getAllAutores, createAutor, getPostsAutores };
