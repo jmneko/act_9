@@ -1,9 +1,7 @@
 const selectAllPosts = () => {
-  return db.query("select * from posts");
-};
-
-const selectAllPostsIdAutor = () => {
-  return db.query("select * from posts where autores_id = 4");
+  return db.query(
+    "select * from posts JOIN autores ON posts.autores_id = autores.id"
+  );
 };
 
 const selectPostById = (postId) => {
@@ -25,7 +23,6 @@ const createOnePost = ({
 
 module.exports = {
   selectAllPosts,
-  selectAllPostsIdAutor,
   createOnePost,
   selectPostById,
 };
